@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"Crud-go/src/configuration/logger"
 	"Crud-go/src/controller/routes"
 	"github.com/joho/godotenv"
 	"github.com/gin-gonic/gin"
@@ -13,6 +14,8 @@ import (
 
 func main(){
 
+
+	logger.Info("Esta começando a aplicação")
 	err := godotenv.Load()
 	if err != nil{
 		log.Fatal("Error loading .env file")
