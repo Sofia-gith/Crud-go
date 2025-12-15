@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"Crud-go/src/Controller/routes"
+	"Crud-go/src/controller/routes"
 	"github.com/joho/godotenv"
 	"github.com/gin-gonic/gin"
 )
