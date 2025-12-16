@@ -1,33 +1,47 @@
 package controller
 
 import (
-	
-	"log"
-	"fmt"
-	"Crud-go/src/controller/model/response"
-	"Crud-go/src/controller/model/request"
+	"Crud-go/src/configuration/logger"
 	"Crud-go/src/configuration/validation"
+	"Crud-go/src/controller/model/request"
+	"Crud-go/src/controller/model/response"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"go.uber.org/zap/zapcore"
 )
 
 func CreateUser(c *gin.Context){
-	
+	logger.Info("Iniciando createUserController",
+	zapcore.Field{
+		Key: "journey",
+		String: "createUserController",
+	})
+
 	var userRequest request.UserRequest
 
 	if err := c.ShouldBindJSON(&userRequest); err != nil {
-		log.Printf("Error tryng to marrshall object, error: %s", err.Error())
+		logger.Error("error tryng to validate user info", err,
+			zapcore.Field{
+				Key: "journey",
+				String: "createUserController",
+			})
 		restErr := validation.ValidatorError(err)
 
 			c.JSON(restErr.Code, restErr)
 			return
 	}
 
-	fmt.Println(userRequest)
+	logger.Info("User created successfully",
+			zapcore.Field{
+				Key: "journey",
+				String: "createUser",
+			})
 	response := response.UserResponse{
 		ID: 		"test",
 		Name: 	userRequest.Name,
 		Email: 	userRequest.Email,
+		Age:  	userRequest.Age,
 	}
-	c.JSON(201, response)
+	c.JSON(http.StatusOK, response)
 }
