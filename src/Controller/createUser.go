@@ -4,7 +4,6 @@ import (
 	"Crud-go/src/configuration/logger"
 	"Crud-go/src/configuration/validation"
 	"Crud-go/src/controller/model/request"
-	"Crud-go/src/controller/model/response"
 	"Crud-go/src/model"
 	"net/http"
 
@@ -36,16 +35,24 @@ func CreateUser(c *gin.Context){
 			return
 	}
 
-	logger.Info("User created successfully",
+	
+			domain := model.NewUserDomain(
+				userRequest.Email,
+				userRequest.Password,
+				userRequest.Name,
+				userRequest.Age,	
+			)
+			if err := domain.CreateUser(); err != nil{
+				c.JSON(http.StatusOK, err)
+				return
+			}
+
+	logger.Info("User criado com sucesso",
 			zapcore.Field{
 				Key: "journey",
 				String: "createUser",
 			})
-	response := response.UserResponse{
-		ID: 		"test",
-		Name: 	userRequest.Name,
-		Email: 	userRequest.Email,
-		Age:  	userRequest.Age,
-	}
-	c.JSON(http.StatusOK, response)
+
+
+	c.String(http.StatusOK, "")
 }

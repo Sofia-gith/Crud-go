@@ -1,7 +1,7 @@
 package routes
 
 import (
-	controller "Crud-go/src/Controller"
+	controller "Crud-go/src/controller"
 
 	"github.com/gin-gonic/gin"
 )
