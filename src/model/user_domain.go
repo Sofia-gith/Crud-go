@@ -5,11 +5,13 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 
+
 )
 
-func NewUserDomain(email, password, name string, 
-	age int8
-	) UserDomainInterface{
+func NewUserDomain(
+	email, password, name string,
+	age int8,
+) UserDomainInterface {
 	return &UserDomain{
 		email, password, name, age,
 	}
@@ -32,6 +34,6 @@ func (ud *UserDomain) EncryptPassword(){
 type UserDomainInterface interface {
 	CreateUser() *rest_err.RestErr
 	UpdateUser(string) *rest_err.RestErr
-	FindUser(string, *UserDomain, *rest_err.RestErr)
+	FindUser(string) (*UserDomain, *rest_err.RestErr)
 	DeleteUser(string) *rest_err.RestErr 
 }
