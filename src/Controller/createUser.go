@@ -5,7 +5,7 @@ import (
 	"Crud-go/src/configuration/validation"
 	"Crud-go/src/controller/model/request"
 	"Crud-go/src/controller/model/response"
-	"Crud-go/src/model/user_domain"
+	"Crud-go/src/model"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
