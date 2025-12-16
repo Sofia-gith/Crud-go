@@ -5,12 +5,16 @@ import (
 	"Crud-go/src/configuration/validation"
 	"Crud-go/src/controller/model/request"
 	"Crud-go/src/controller/model/response"
+	"Crud-go/src/model/user_domain"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap/zapcore"
 )
 
+var(
+	userDomainInterface model.UserDomainInterface
+)
 func CreateUser(c *gin.Context){
 	logger.Info("Iniciando createUserController",
 	zapcore.Field{
