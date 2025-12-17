@@ -1,9 +1,10 @@
-package model
+package service
 
-import(
+import (
 	"Crud-go/src/configuration/rest_err"
+	"Crud-go/src/model"
 )
 
-func (ud *userDomain) FindUser(id string) (*userDomain, *rest_err.RestErr){
+func (ud *userDomainService) FindUser(string) (*model.UserDomainInterface, *rest_err.RestErr){
 	return nil, nil
 }

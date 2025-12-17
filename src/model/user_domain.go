@@ -1,12 +1,21 @@
 package model
 
 import (
-	"Crud-go/src/configuration/rest_err"
+	
 	"crypto/md5"
 	"encoding/hex"
 
 
 )
+
+type UserDomainInterface interface {
+	GetEmail() string
+	GetName() string
+	GetAge() int8
+	GetPassword() string
+	
+	EncryptPassword()
+}
 
 func NewUserDomain(
 	email, password, name string,
@@ -45,9 +54,3 @@ func (ud *userDomain) EncryptPassword(){
 	ud.password = hex.EncodeToString(hash.Sum(nil))
 }
 
-type UserDomainInterface interface {
-	CreateUser() *rest_err.RestErr
-	UpdateUser(string) *rest_err.RestErr
-	FindUser(string) (*userDomain, *rest_err.RestErr)
-	DeleteUser(string) *rest_err.RestErr 
-}

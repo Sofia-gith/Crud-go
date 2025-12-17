@@ -1,9 +1,10 @@
-package model
+package service
+
 
 import (
 	"Crud-go/src/configuration/rest_err"
 )
 
-func (*userDomain) DeleteUser(string) *rest_err.RestErr{
+func (*userDomainService) DeleteUser(string) *rest_err.RestErr{
 	return nil
 }
