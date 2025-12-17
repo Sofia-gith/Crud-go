@@ -5,6 +5,7 @@ import (
 	"Crud-go/src/configuration/validation"
 	"Crud-go/src/controller/model/request"
 	"Crud-go/src/model"
+	"Crud-go/src/model/service"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -42,7 +43,8 @@ func CreateUser(c *gin.Context){
 				userRequest.Name,
 				userRequest.Age,	
 			)
-			if err := domain.CreateUser(); err != nil{
+			service := service.NewUserDomainService()
+			if err := service.CreateUser(domain); err != nil{
 				c.JSON(http.StatusOK, err)
 				return
 			}
