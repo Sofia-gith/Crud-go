@@ -17,6 +17,6 @@ func (ud *userDomainService) CreateUser(
 
 	userDomain.EncryptPassword()
 
-	fmt.Println(ud)
+	fmt.Println(userDomain.GetPassword())
 		return nil
 }
