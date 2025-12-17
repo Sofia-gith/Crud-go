@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-func (ud *UserDomain) CreateUser() *rest_err.RestErr{
+func (ud *userDomain) CreateUser() *rest_err.RestErr{
 
 	logger.Info("Iniciando createUse Model", zap.String("jorney", "CreateModel"))
 
