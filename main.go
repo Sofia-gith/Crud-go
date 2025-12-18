@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"log"
-	"os"
-
 	"Crud-go/src/configuration/logger"
 	"Crud-go/src/controller/routes"
 	"github.com/joho/godotenv"
 	"github.com/gin-gonic/gin"
+	"Crud-go/src/model/service"
+	"Crud-go/src/controller"
+
 )
 
 
@@ -20,10 +20,13 @@ func main(){
 	if err != nil{
 		log.Fatal("Error loading .env file")
 	}
-	fmt.Println(os.Getenv("TEST"))
-
+	
+	//init dependecies
+	service:= service.NewUserDomainService()
+	userController := controller.NewUserControllerInterface(service) 
+		
 	router:= gin.Default()
-	routes.InitRoutes(&router.RouterGroup)
+	routes.InitRoutes(&router.RouterGroup, userController)
 
 	if err:= router.Run(":8080"); err != nil{
 		log.Fatal(err)
