@@ -15,7 +15,7 @@ import (
 var(
 	userDomainInterface model.UserDomainInterface
 )
-func CreateUser(c *gin.Context){
+func (uc *userControllerInterface) CreateUser(c *gin.Context){
 	logger.Info("Iniciando createUserController",
 	zapcore.Field{
 		Key: "journey",
