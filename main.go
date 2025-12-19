@@ -1,13 +1,16 @@
 package main
 
 import (
-	"log"
+	"Crud-go/src/configuration/database/mongodb"
 	"Crud-go/src/configuration/logger"
-	"Crud-go/src/controller/routes"
-	"github.com/joho/godotenv"
-	"github.com/gin-gonic/gin"
-	"Crud-go/src/model/service"
 	"Crud-go/src/controller"
+	"Crud-go/src/controller/routes"
+	"Crud-go/src/model/service"
+	"log"
+
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
+
 
 )
 
@@ -20,6 +23,8 @@ func main(){
 	if err != nil{
 		log.Fatal("Error loading .env file")
 	}
+
+	mongodb.InitConnection()
 	
 	//init dependecies
 	service:= service.NewUserDomainService()
