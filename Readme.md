@@ -30,7 +30,7 @@ go run main.go
 
 O servidor estará rodando em `http://localhost:8080`
 
-## Estrutura do projeto
+## Estrutura do projetos
 
 ```
 Crud-go/
