@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Crud-go/src/configuration/database/mongodb"
+	// "Crud-go/src/configuration/database/mongodb"
 	"Crud-go/src/configuration/logger"
 	"Crud-go/src/controller"
 	"Crud-go/src/controller/routes"
@@ -24,7 +24,7 @@ func main(){
 		log.Fatal("Error loading .env file")
 	}
 
-	mongodb.InitConnection()
+
 	
 	//init dependecies
 	service:= service.NewUserDomainService()
