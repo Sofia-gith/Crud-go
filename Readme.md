@@ -62,7 +62,7 @@ Crud-go/
 ## Tecnologias
 
 - Go 1.21+
-- Gin Framework (ou especifique o framework usado)
+- Gin Framework 
 
 ## Compilar o projeto
 
