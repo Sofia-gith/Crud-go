@@ -9,8 +9,10 @@ import (
 
 func newUserRepository(
 	database *mongo.Database,
-)userRepositoy{
-	return *&userRepositoy{databse}
+)UserRepository{
+	return *UserRepository{
+		database,
+	}
 }
 
 type userRepositoy struct{
