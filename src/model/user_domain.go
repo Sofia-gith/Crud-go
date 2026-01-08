@@ -11,9 +11,14 @@ import (
 )
 
 type UserDomainInterface interface {
-	GetEmail() string
-	GetName() string
-	GetAge() int8
+
+	GetEmail() 	string
+	GetName() 	string
+	GetAge() 	int8
+
+	SetID(string)
+
+
 	GetPassword() string
 	
 	EncryptPassword()
@@ -24,15 +29,25 @@ func NewUserDomain(
 	age int8,
 ) UserDomainInterface {
 	return &userDomain{
-		email, password, name, age,
+		Email: 		email,
+		Password: 	password,
+		Name: 		name,
+		Age: 		age,
 	}
 }
 
+func (ud *userDomain) SetID(id string){
+	ud.ID = id
+}
+
+
+
 type userDomain struct {
+	ID 		 string
 	Email    string  `json:"email"`
-	Password string `json:"password"`	
-	Name     string `json:"name"`
-	Age      int8  `json:"age"`
+	Password string 
+	Name     string 
+	Age      int8  
 }
 
 func (ud *userDomain) GetJSONValue() (string, error) {

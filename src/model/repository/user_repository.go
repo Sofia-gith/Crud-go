@@ -10,13 +10,13 @@ import (
 func newUserRepository(
 	database *mongo.Database,
 )UserRepository{
-	return *UserRepository{
+	return &userRepository{
 		database,
 	}
 }
 
-type userRepositoy struct{
-	databaseConection  *mongo.Database
+type userRepository struct{
+	databaseConnection  *mongo.Database
 }
 
 type UserRepository interface{

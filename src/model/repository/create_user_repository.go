@@ -7,7 +7,6 @@ import (
 	"Crud-go/src/configuration/logger"
 	"Crud-go/src/configuration/rest_err"
 	"Crud-go/src/model"
-
 	
 )
 
@@ -33,4 +32,8 @@ func (ur *userRepository) CreateUser(
 		 if err != nil{
 			return nil, rest_err.NewInternalServerError(err.Error())
 		}
+
+		userDomain.SetID(result.InsertedID.(string))
+
+		return userDomain, nil
 }
