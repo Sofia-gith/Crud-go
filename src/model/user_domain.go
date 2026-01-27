@@ -4,19 +4,18 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 
+
 )
 
 type UserDomainInterface interface {
 
 	GetEmail() 	string
+	GetPassword() string
 	GetName() 	string
 	GetAge() 	int8
+
 	SetID(string)
-	SetName(string)
 
-
-	GetPassword() string
-	
 	EncryptPassword()
 }
 

@@ -6,6 +6,7 @@ import (
 	"Crud-go/src/configuration/logger"
 	"Crud-go/src/configuration/rest_err"
 	"Crud-go/src/model"
+	"Crud-go/src/model/repository/entity/converter"
 	
 )
 
@@ -22,10 +23,9 @@ func (ur *userRepository) CreateUser(
 
 		collection := ur.databaseConnection.Collection(collection_name)
 
-		 value, err := userDomain.GetJSONValue(); 
-		 if err != nil{
-			return nil, rest_err.NewInternalServerError(err.Error())
-		}
+		 value := converter.ConvertDomainToEntity(userDomain)
+		
+		 
 
 		result, err := collection.InsertOne(context.Background(), value)
 		 if err != nil{
