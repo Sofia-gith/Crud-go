@@ -30,27 +30,6 @@ go run main.go
 
 O servidor estará rodando em `http://localhost:8080`
 
-## Estrutura do projetos
-
-```
-Crud-go/
-├── src/
-│   ├── configuration/
-│   │   └── rest_err.go
-│   └── controller/
-│       └── routes/
-│           ├── routes.go
-│           ├── createUser.go
-│           ├── deleteUser.go
-│           ├── findUser.go
-│           └── updateUser.go
-├── .env
-├── .gitignore
-├── go.mod
-├── go.sum
-├── main.go
-└── Readme.md
-```
 
 ## Endpoints da API
 
